@@ -35,7 +35,7 @@ class Output extends Component{
                     <ul className="list-group list-group-flush" style={ {"background" : "transparent"} }>
                                     
                             <li className="list-group-item">
-                                <b>Title-</b> {movie.Title}
+                                <b> {movie.Title}</b><br><p>{movie.Plot}</p>
                             </li>
 
                             <li className="list-group-item">
