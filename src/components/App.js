@@ -16,7 +16,6 @@ class App extends Component {
           <Router>
 
               <Head/>
-              
 
                   <div>        
                   <Switch>

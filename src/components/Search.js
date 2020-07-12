@@ -66,6 +66,15 @@ class Search extends Component{
                 <span className="my-4  d-none d-sm-block" style={ { "borderRight": "1px solid rgb(209, 196, 233)"} }></span>
 
                 <form  className="col-md-5 col-sm-12 my-auto px-4">
+                    {
+                        this.props.searchFormOnProcess ?
+                            <div className="d-block text-center text-light mb-1">
+                                <i className="fa fa-circle-o-notch fa-spin fa-fw"></i> <span className="sr-only">Crawling {this.state.searchField}</span>
+                            </div>
+                        :
+                            null
+
+                    }
                     <div className="form-row" style={ { "background":"#ffffff", "border":"2px solid #d1c4e9", "borderRadius": ".4rem .5rem .5rem .4rem"}  }>
                         <div className="col-10">
                             <input type="text" value={this.state.searchField} name="searchField" onChange={this.handleInputChange} id="searchInput"  className="form-control form-control-lg" style={ {"border":"0px"} } placeholder="Enter URL" />
