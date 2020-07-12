@@ -18,7 +18,7 @@ class App extends Component {
               <Head/>
               
 
-                  <div style={ {"height" : "700px"} }>        
+                  <div>        
                   <Switch>
 
                     <Route path="/" component={Home} exact></Route>

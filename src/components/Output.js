@@ -14,7 +14,7 @@ class Output extends Component{
                 <div className="col-12  pt-4">
                     <p className="text-right"><button className="btn btn-success" onClick={this.props.toggleOutput}>Crawl</button></p>
                 </div>
-                <div className="col-8">
+                <div className="col-md-8 col-sm-12 p-4 order-2">
                     <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
                         <ol className="carousel-indicators">
                             {
@@ -30,19 +30,19 @@ class Output extends Component{
                             
                         </ol>
 
-                        <div className="carousel-inner" style={ {"height":"200px !important"} }>
+                        <div className="carousel-inner">
                             {
                                 this.props.ImagesAndWordFrequency.data.images.map( (ImgSrc, i) => {
                                     return(
                                         i == 0 ?
                                         <div className="carousel-item active" key={i}>
-                                            <img className="d-block" src={ImgSrc} style={ {"height":"200px !important", "width":"auto"} }/>
+                                            <img className="d-block" src={ImgSrc} style={ {"height":"auto", "width":"100%"} }/>
                                         </div>
 
                                         :
      
                                         <div className="carousel-item" key={i}>
-                                            <img className="d-block" src={ImgSrc} style={ {"height":"200px !important", "width":"auto"} }/>
+                                            <img className="d-block" src={ImgSrc} style={ {"height":"auto", "width":"100%"} }/>
                                         </div>
 
                                     );
@@ -60,7 +60,7 @@ class Output extends Component{
                     </div>
                 </div>
 
-                <div className="col-4 pt-4">
+                <div className="col-md-4 col-sm-12 order-1">
 
                     <table className="table table-dark">
                         <thead>

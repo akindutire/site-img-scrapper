@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 
 import { contentCrawler, toggleOutput } from '../actions/ContentActions';
+import { searchFormProcessing } from '../actions/FormActions';
 
 class Search extends Component{
 
@@ -10,8 +11,7 @@ class Search extends Component{
     
     
         this.state = {
-            searchField: "http://",
-            processingForm: false
+            searchField: "http://"
         };
 
         this.crawl = this.crawl.bind(this);
@@ -24,7 +24,8 @@ class Search extends Component{
     async crawl(event){
 
         event.preventDefault();
-        this.setState({processingForm: true});
+       
+        this.props.searchFormProcessing(true);
 
         try{
             
@@ -36,10 +37,12 @@ class Search extends Component{
                alert("No images found");
             }
 
+            this.props.searchFormProcessing(false);
+
         }catch(err){
             console.log(err);
             alert("An error occured retry");
-            
+            this.props.searchFormProcessing(false);
         }
 
     }
@@ -55,29 +58,24 @@ class Search extends Component{
                 
         return(
             
-            <div className="row" style={ {"background":"black", "opacity":"0.8" } }>
-                <div className="col-6 text-light" style={ {"height":"400px","paddingLeft":"3%", "margin" : "10% auto", "borderRight": "1px solid rgb(209, 196, 233)"} }>
-                    <h1 style={ {"fontSize":"4.5rem"} }>Crawl images and words</h1>
+            <div className="row" style={ {"min-height" : "600px","background":"black", "opacity":"0.8" } }>
+                <div className="col-md-6 d-none d-sm-block text-light py-4 pl-4 my-4 h-75">
+                    <span style={ {"fontSize":"4.5rem"} }>Crawl images and words</span>
                 </div>
+                
+                <span className="my-4" style={ { "borderRight": "1px solid rgb(209, 196, 233)"} }></span>
 
-                <form className="col-6" style={ {"margin" : "20% auto", "paddingRight": "15%", "paddingLeft": "3%"} }>
+                <form  className="col-md-5 col-sm-12 my-auto px-4">
                     <div className="form-row" style={ { "background":"#ffffff", "border":"2px solid #d1c4e9", "borderRadius": ".4rem .5rem .5rem .4rem"}  }>
                         <div className="col-10">
                             <input type="text" value={this.state.searchField} name="searchField" onChange={this.handleInputChange} id="searchInput"  className="form-control form-control-lg" style={ {"border":"0px"} } placeholder="Enter URL" />
                         </div>
                         <div className="col-2 pr-0">
-                                {
-                                    this.state.processingForm ?
-                                        <button type="disabled" id="searchBtn" className="btn btn-lg w-100"  style={ {"background":"#e0e0e0", "borderRadius": "0 .3rem .3rem 0"} } >
-                                            <i className="fa fa-circle-o-notch fa-spin"></i> 
-                                        </button>
-                                    :
-                                        <button type="submit" id="searchBtn" className="btn btn-lg w-100" onClick={this.crawl}  style={ {"background":"#d1c4e9", "borderRadius": "0 .3rem .3rem 0"} } >
-                                            <i className="fas fa-search"></i> 
-                                        </button>
-                                }
-                                
-                            
+                               
+                                <button type="button" disabled={this.props.searchFormOnProcess} id="searchBtn" className="btn btn-lg w-100" onClick={this.crawl}  style={ {"background":"#d1c4e9", "borderRadius": "0 .3rem .3rem 0"} } >
+                                    <i className="fas fa-search"></i> 
+                                </button>
+                        
                         </div>
                     </div>
                 </form>
@@ -90,8 +88,8 @@ class Search extends Component{
 
 const mapStateToProps = (state) => {
     // console.log(state.ImagesAndWordFrequency);
-    return { ImagesAndWordFrequency: state.ImagesAndWordFrequency };
+    return { ImagesAndWordFrequency: state.ImagesAndWordFrequency, searchFormOnProcess: state.searchformOnProcess };
 }
 
 
-export default connect(mapStateToProps, { contentCrawler, toggleOutput})(Search);
+export default connect(mapStateToProps, { contentCrawler, toggleOutput, searchFormProcessing})(Search);
