@@ -58,7 +58,7 @@ class Search extends Component{
                 
         return(
             
-            <div className="row" style={ {"min-height" : "600px","background":"black", "opacity":"0.8" } }>
+            <div className="row" style={ {"minHeight" : "450px","background":"black", "opacity":"0.8" } }>
                 <div className="col-md-6 d-none d-sm-block text-light py-4 pl-4 my-4 h-75">
                     <span style={ {"fontSize":"4.5rem"} }>Crawl images and words</span>
                 </div>
