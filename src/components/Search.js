@@ -58,8 +58,8 @@ class Search extends Component{
 
                     {
                         this.props.searchFormOnProcess ?
-                            <div className="d-block text-center text-light">
-                                <i className="fas fa-circle-o-notch fa-spin"></i> Getting details
+                            <div className="d-block text-center text-light mb-1">
+                                <i className="fa fa-circle-o-notch fa-spin fa-fw"></i> <span className="sr-only">Getting details</span>
                             </div>
                         :
                             null
