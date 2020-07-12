@@ -19,10 +19,16 @@ class Output extends Component{
         const movie = this.props.movieDetails;
         return (
             
-            <div className="row container mt-4">
+            <div className="row no-gutter container" style={ {"marginTop":"3%"} }>
                
+               <div className="col-12 mt-4">
+                    <p className="text-center">
+                        <a className="btn btn-warning w-50" onClick={this.goBackToSearch}><i className="fas fa-chevron-left"></i> Goto Search</a>
+                    </p>
+                </div>
+
                 <div className="col-md-6 col-sm-12">
-                    <img src={movie.Poster} className="img-fluid" alt="Poster"/>
+                    <img src={movie.Poster} className="img-fluid w-100" alt="Poster"/>
                 </div>
 
                 <div className="col-md-6 col-sm-12">
@@ -67,11 +73,7 @@ class Output extends Component{
                     </ul>
                 </div>
 
-                <div className="col-12 mt-4">
-                    <p className="text-center">
-                        <a className="btn btn-warning" onClick={this.goBackToSearch}><i className="fas fa-chevron-left"></i> Back</a>
-                    </p>
-                </div>
+               
             </div>
 
         );
