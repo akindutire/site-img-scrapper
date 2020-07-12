@@ -63,7 +63,7 @@ class Search extends Component{
                     <span style={ {"fontSize":"4.5rem"} }>Crawl images and words</span>
                 </div>
                 
-                <span className="my-4" style={ { "borderRight": "1px solid rgb(209, 196, 233)"} }></span>
+                <span className="my-4  d-none d-sm-block" style={ { "borderRight": "1px solid rgb(209, 196, 233)"} }></span>
 
                 <form  className="col-md-5 col-sm-12 my-auto px-4">
                     <div className="form-row" style={ { "background":"#ffffff", "border":"2px solid #d1c4e9", "borderRadius": ".4rem .5rem .5rem .4rem"}  }>
