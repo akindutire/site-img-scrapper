@@ -10,7 +10,7 @@ export const getMovieDetails = (body) => {
 
         console.log("STARTED REQUEST");
 
-        const res = await axios.get(`http://omdbapi.com/?apikey=91153498&t=${body.t}&type=${body.type}&r=${body.r}`, headers);
+        const res = await axios.get(`https://omdbapi.com/?apikey=91153498&t=${body.t}&type=${body.type}&r=${body.r}`, headers);
     
         console.log("DISPATCHING REQ");
         
