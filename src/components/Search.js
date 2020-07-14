@@ -27,6 +27,9 @@ class Search extends Component{
             await this.props.getMovieDetails({t: this.state.movieTitle, type: "movie", r: "json"});
             
             movieRes = Object.entries(this.props.movieDetails);
+            
+            console.log(movieRes);
+
             if(movieRes.Response !== False){
                 this.props.toggleOutput();
             }else{
