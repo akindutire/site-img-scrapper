@@ -25,7 +25,6 @@ class Search extends Component{
             this.props.searchFormProcessing(true);
 
             await this.props.getMovieDetails({t: this.state.movieTitle, type: "movie", r: "json"});
-            this.props.searchFormProcessing(false);
             
             if(Object.entries(this.props.movieDetails).length > 0){
                 this.props.toggleOutput();
@@ -34,11 +33,12 @@ class Search extends Component{
             }
 
         }catch(err){
-            console.log(err);
-
-            alert("An error occured, try again");
+            console.log(err.message);
+            alert(err.message + " : An error occured, try again");
+        }finally{
             this.props.searchFormProcessing(false);
         }
+
     }
 
     handleInputChange(event){

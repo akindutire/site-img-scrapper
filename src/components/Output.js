@@ -28,7 +28,13 @@ class Output extends Component{
                 </div>
 
                 <div className="col-md-6 col-sm-12">
-                    <img src={movie.Poster} className="img-fluid w-100" alt="Poster"/>
+                    {
+                        movie.Poster === "N/A" ?
+                        null
+                        :
+                        <img src={movie.Poster} className="img-fluid w-100" alt="Poster"/>
+                    }
+                    
                 </div>
 
                 <div className="col-md-6 col-sm-12">
@@ -41,35 +47,41 @@ class Output extends Component{
                             </li>
 
                             <li className="list-group-item">
-                                <b>Year-</b> {movie.Year}
+                                <b>Year</b> {movie.Year}
                             </li>
 
                             <li className="list-group-item">
                                 <b>Rated</b> {movie.Rated}
                             </li>
-
+                        
                             <li className="list-group-item">
-                                <b>Released-</b> {movie.Released}
+                                <b>Released</b> {movie.Released}
                             </li>
 
                             <li className="list-group-item">
-                                <b>Genre-</b> {movie.Genre}
+                                <b>Genre</b> {movie.Genre}
                             </li>
 
                             <li className="list-group-item">
-                                <b>Director-</b> {movie.Director}
+                                <b>Director</b> {movie.Director}
                             </li>
 
                             <li className="list-group-item">
-                                <b>Actors-</b> {movie.Actors}
+                                <b>Actors</b> {movie.Actors}
                             </li>
 
                             <li className="list-group-item">
-                                <b>Language-</b> {movie.Language}
+                                <b>Language</b> {movie.Language}
                             </li>
 
                             <li className="list-group-item">
-                                <b>Ratings-</b> {movie.Ratings[0].Value}
+                                {
+                                    movie.Ratings.length > 0 ? 
+                                    <><b>Ratings</b> <span>movie.Ratings[0].Value</span> </>
+                                    :
+                                    null   
+                                }
+                                
                             </li>
                               
                     </ul>
