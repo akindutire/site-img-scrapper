@@ -26,14 +26,12 @@ class Search extends Component{
 
             await this.props.getMovieDetails({t: this.state.movieTitle, type: "movie", r: "json"});
             
-            movieRes = Object.entries(this.props.movieDetails);
-            
-            console.log(movieRes);
+            const movieRes = this.props.movieDetails;
 
-            if(movieRes.Response !== False){
+            if(movieRes.Response !== 'False'){
                 this.props.toggleOutput();
             }else{
-                throw movieRes.Error;
+                throw { message: movieRes.Error };
             }
  
         }catch(err){
